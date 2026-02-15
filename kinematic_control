@@ -1,0 +1,63 @@
+# Control Cinématico de Robot Diferencial
+
+**Materia:** Programación con Python / Robótica Móvil  
+**Profesor:**  
+**Institución:** Universidad Tecnológica de la Mixteca  
+**Repositorio:** https://github.com/tu_usuario/robot_diferencial
+
+---
+
+## Introducción
+
+El **control cinemático** de un robot diferencial consiste en calcular las velocidades de las ruedas a partir de las velocidades deseadas del robot (lineal y angular), o viceversa, para que el robot se desplace de manera controlada.
+
+En un robot diferencial con **dos ruedas motrices**:
+
+- \(v_r\) = velocidad lineal de la rueda derecha  
+- \(v_l\) = velocidad lineal de la rueda izquierda  
+- \(R\) = radio de las ruedas  
+- \(L\) = distancia entre ruedas (eje del robot)  
+
+### Modelo directo (ruedas → robot)
+
+La **velocidad lineal del robot** se calcula como:
+
+$$
+v = \frac{R(\omega_r + \omega_l)}{2}
+$$
+
+La **velocidad angular** del robot es:
+
+$$
+\omega = \frac{R(\omega_r - \omega_l)}{L}
+$$
+
+### Modelo inverso (robot → ruedas)
+
+Si se desea que el robot tenga ciertas velocidades \(v\) y \(\omega\), las velocidades de las ruedas se calculan como:
+
+$$
+\omega_r = \frac{2v + \omega L}{2R}
+$$
+
+$$
+\omega_l = \frac{2v - \omega L}{2R}
+$$
+
+---
+
+## Objetivo del Control Cinemático
+
+- Permitir que el robot siga trayectorias planificadas.  
+- Traducir comandos de velocidad del centro del robot a cada rueda.  
+- Facilitar el diseño de controladores que mantengan precisión en la posición y orientación del robot.
+
+---
+
+## Visualización
+
+El repositorio incluye:
+
+- `kinematics.py` → implementación de modelo directo e inverso  
+- `controller.py` → ejemplo de controlador cinemático  
+- Ejercicios prácticos de simulación
